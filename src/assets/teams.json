@@ -1,305 +1,340 @@
 {
   "Core": [
     {
-      "name": "Sarah Thomas",
+      "name": "K Hemalatha Reddy",
       "role": "President",
       "team": "Core",
-      "id": "BL.EN.U4EAC23049",
-      "image": "images/new_team/BL.EN.U4EAC23049.png",
+      "id": "BL.SC.U4AIE24018",
+      "image": "teams/K_Hemalatha_Reddy.jpg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/sarah-thomas-13890b283/",
-        "whatsapp": "https://wa.me/+919663995652"
+        "linkedin": "https://www.linkedin.com/in/k-hemalatha-reddy-a7a70a322",
+        "github": "https://github.com/hema312006"
       }
     },
     {
-      "name": "Suseegaran M",
+      "name": "Ashtavi A Naik",
       "role": "Vice President",
       "team": "Core",
-      "id": "BL.EN.U4ECE23250",
-      "image": "images/new_team/BL.EN.U4ECE23250.jpeg",
+      "image": "teams/Ashtavi_v2.jpg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/suseegaran-murugan-313696277",
-        "whatsapp": "https://wa.me/+919207876566"
-      }
+        "linkedin": "https://www.linkedin.com/in/ashtavi-a-naik-11296936a"
+      },
+      "id": "BL.EN.U4ECE24108"
     },
     {
-      "name": "J.S. Vaibhav",
-      "role": "Vice President",
-      "team": "Core",
-      "id": "BL.EN.U4CSE23017",
-      "image": "images/new_team/BL.EN.U4CSE23017.jpeg",
-      "social": {
-        "github": "https://github.com/Agerarsr",
-        "linkedin": "https://www.linkedin.com/in/j-s-vaibhav-8923192b5/",
-        "whatsapp": "https://wa.me/+919148059695"
-      }
-    },
-    {
-      "name": "Sanjushree R",
+      "name": "Swasthik Sujan B S",
       "role": "Treasurer",
       "team": "Core",
-      "id": "BL.EN.U4AIE23130",
-      "image": "images/new_team/BL.EN.U4AIE23130.jpeg",
+      "id": "BL.SC.U4CSE25241",
+      "image": "teams/Swasthik_v2.jpg",
       "social": {
-        "github": "https://github.com/sanjxx19",
-        "linkedin": "https://www.linkedin.com/in/sanjushree-rajan-1s9a0n2j0u5/",
-        "whatsapp": "https://wa.me/+919164889469"
-      }
-    },
-    {
-      "name": "Sashank Abburu",
-      "role": "Lead | Projects",
-      "team": "Core",
-      "id": "BL.EN.U4EAC23053",
-      "image": "images/new_team/BL.EN.U4EAC23053.jpeg",
-      "social": {
-        "github": "https://github.com/sashank2304",
-        "linkedin": "https://www.linkedin.com/in/sashank-abburu-93338128",
-        "whatsapp": "https://wa.me/+919980812030"
-      }
-    },
-    {
-      "name": "Aaryan Gera",
-      "role": "Lead | Codes",
-      "team": "Core",
-      "id": "BL.EN.U4AIE23102",
-      "image": "images/new_team/BL.EN.U4AIE23102.jpeg",
-      "social": {
-        "linkedin": "https://in.linkedin.com/in/aaryan-gera-707238285",
-        "whatsapp": "https://wa.me/+917619221708"
-      }
-    },
-    {
-      "name": "Chethana Ramesh",
-      "role": "Lead | Events",
-      "team": "Core",
-      "id": "BL.EN.U4EAC23044",
-      "image": "images/new_team/BL.EN.U4EAC23044.jpg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/r-chethana-09ba72373",
-        "whatsapp": "https://wa.me/+917975738245"
-      }
-    },
-    {
-      "name": "Rakesh S",
-      "role": "Lead | Outreach",
-      "team": "Core",
-      "id": "BL.EN.U4ECE23238",
-      "image": "images/new_team/BL.EN.U4ECE23238.jpeg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/rakesh-s-87a230295/",
-        "whatsapp": "https://wa.me/+918754009420"
-      }
-    },
-    {
-      "name": "Ashtavi",
-      "role": "Lead | Design",
-      "team": "Core",
-      "id": "BL.EN.U4XYZ12345",
-      "image": "",
-      "social": {
-        "linkedin": "",
-        "whatsapp": "https://wa.me/"
+        "linkedin": "https://www.linkedin.com/in/swasthik-sujan-b-s-501883336?utm_source=share_via&utm_content=profile&utm_medium=member_android"
       }
     }
   ],
-  "Technical": [
+  "Projects": [
     {
       "name": "Shreyas D",
-      "role": "Member",
-      "team": "Technical",
+      "role": "Lead | Projects",
+      "team": "Projects",
       "id": "BL.SC.U4CSE24246",
-      "image": "images/new_team/BL.SC.U4CSE24246.jpg",
+      "image": "teams/me_Shreyas D.jpg",
       "social": {
-        "github": "https://github.com/shreyasd2006",
         "linkedin": "https://www.linkedin.com/in/shreyas-d-39195a202/"
       }
     },
     {
-      "name": "K Hemalatha Reddy",
+      "name": "Aneesh Sagar Reddy",
       "role": "Member",
-      "team": "Technical",
-      "id": "BL.SC.U4AIE24018",
-      "image": "images/new_team/BL.SC.U4AIE24018.jpeg",
+      "team": "Projects",
+      "id": "BL.SC.U4AIE24103",
+      "image": "teams/IMG-20250402-WA0010(1)_Aneesh Sagar Reddy.jpg",
       "social": {
-        "github": "https://github.com/hema312006",
-        "linkedin": "https://www.linkedin.com/in/k-hemalatha-reddy-a7a70a322/"
+        "linkedin": "https://www.linkedin.com/in/aneesh-sagar-reddy",
+        "github": "https://github.com/Chimera418"
       }
     },
     {
-      "name": "Pratyush Adhikari",
+      "name": "Aditya Kundu",
       "role": "Member",
-      "team": "Technical",
-      "id": "BL.SC.U4CSE24167",
-      "image": "images/new_team/BL.SC.U4CSE24167.png",
+      "team": "Projects",
+      "id": "BL.SC.U4AIE24004",
+      "image": "teams/Aditya_Kundu_v2.jpg",
       "social": {
-        "github": "https://github.com/pratyushadk",
-        "linkedin": "https://www.linkedin.com/in/pratyush-adk/"
-      }
-    },
-    {
-      "name": "Samvrudha R R",
-      "role": "Member",
-      "team": "Technical",
-      "id": "BL.EN.U4EAC23052",
-      "image": "images/new_team/BL.EN.U4EAC23052.jpg",
-      "social": {
-        "github": "https://github.com/Samvrudha05",
-        "linkedin": "www.linkedin.com/in/samvrudha-r-r-89b778365"
-      }
-    },
-    {
-      "name": "Manoj Srivatsav P",
-      "role": "Member",
-      "team": "Technical",
-      "id": "BL.EN.U4AIE23122",
-      "image": "images/new_team/BL.EN.U4AIE23122.png",
-      "social": {
-        "github": "https://github.com/Theo1917",
-        "linkedin": "www.linkedin.com/in/manoj-srivatsav-4b5a50301"
-      }
-    }
-  ],
-  "Non-Technical": [
-    {
-      "name": "Dhyan Muruganantham",
-      "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.SC.U4CSE25209",
-      "image": "images/new_team/BL.SC.U4CSE25209.png",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/dhyan-m-591343395"
+        "linkedin": "https://www.linkedin.com/in/adityakundu18",
+        "github": "https://github.com/Terminator19-ops"
       }
     },
     {
       "name": "Aditya Raj",
       "role": "Member",
-      "team": "Non-Technical",
+      "team": "Projects",
       "id": "BL.SC.U4CSE25201",
-      "image": "images/new_team/BL.SC.U4CSE25201.jpg",
+      "image": "teams/IMG_20261003_112547_ADITYA RAJ.jpg",
       "social": {
-        "github": "https://github.com/adityaraj-2105",
-        "linkedin": "https://www.linkedin.com/in/aditya-raj-6870281bb/"
+        "linkedin": "https://www.linkedin.com/in/aditya-raj-6870281bb/",
+        "github": "https://github.com/adityaraj-2105"
       }
+    },
+    {
+      "name": "Harinandhan Praveen",
+      "role": "Member",
+      "team": "Projects",
+      "id": "BL.SC.U4CSE25016",
+      "image": "teams/hari_HARINANDAN PRAVEEN.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/harinandan-praveen-ab6b82363/?isSelfProfile=true",
+        "github": "https://github.com/harinandanpraveen-coder"
+      }
+    }
+  ],
+  "Codes": [
+    {
+      "name": "E Sai Brinda",
+      "role": "Lead | Codes",
+      "team": "Codes",
+      "id": "BL.SC.U4AIE24114",
+      "image": "teams/pic_E SAI BRINDA.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/sai-brinda-e-b92995333/",
+        "github": "https://github.com/br-INDA"
+      }
+    },
+    {
+      "name": "Parameshwar Reddy B",
+      "role": "Member",
+      "team": "Codes",
+      "id": "BL.SC.U4AIE24008",
+      "image": "teams/Parameshwar_Reddy_v2.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/parameshwar-reddy-b-3a125b2b1?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "github": "https://github.com/paramesh502"
+      }
+    },
+    {
+      "name": "Akshaya Gokavarapu",
+      "role": "Member",
+      "team": "Codes",
+      "id": "BL.SC.U4AIE24016",
+      "image": "teams/WhatsApp Image 2026-10-03 at 9.47.41 PM_GOKAVARAPU SYAMALAMB.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/akshaya-gokavarapu-13ab01324",
+        "github": "https://github.com/braintrust07"
+      }
+    },
+    {
+      "name": "Siddarth Adiga",
+      "role": "Member",
+      "team": "Codes",
+      "image": "teams/Siddarth_Adiga.jpg",
+      "social": {
+        "linkedin": "https://in.linkedin.com/in/siddarth-adiga-158899427",
+        "github": "https://github.com/siddarthadiga"
+      },
+      "id": "BL.EN.U4RAE26050"
+    },
+    {
+      "name": "Ben Gary Leo G",
+      "role": "Member",
+      "team": "Codes",
+      "id": "BL.SC.U4AIE26012",
+      "image": "teams/Ben_Gary_Leo_G_v2.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/ben-gary-leo-455316331/?isSelfProfile=true",
+        "github": "https://github.com/Benjamin-G-Leo"
+      }
+    }
+  ],
+  "Events": [
+    {
+      "name": "Prithvi Mahalingam",
+      "role": "Lead | Events",
+      "team": "Events",
+      "id": "BL.EN.U4EAC25036",
+      "image": "teams/WhatsApp Image 2026-10-03 at 21.44.21_PRITHVI MAHALINGAM.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/prithvi-mahalingam-1a61633b8/?isSelfProfile=true",
+        "github": "https://github.com/Pithujay"
+      }
+    },
+    {
+      "name": "Anjali Kadavil",
+      "role": "Member",
+      "team": "Events",
+      "id": "BL.EN.U4RAE25004",
+      "image": "teams/PROFILE_PHOTO_Anjali Kadavil.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/anjali-kadavil"
+      }
+    },
+    {
+      "name": "Aditi Chaturvedi",
+      "role": "Member",
+      "team": "Events",
+      "id": "BL.SC.U4AIE26163",
+      "image": "teams/Aditi_Chaturvedi_v3.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/aditi-chaturvedi-605927405?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+      }
+    },
+    {
+      "name": "Amishi Kumar",
+      "role": "Member",
+      "team": "Events",
+      "id": "BL.SC.U4AIE26005",
+      "image": "teams/20261003_122823_Amishi Kumar.jpg",
+      "social": {
+        "github": "https://github.com/LianaLuna"
+      }
+    },
+    {
+      "name": "Sumit Bhushan Singh",
+      "role": "Member",
+      "team": "Events",
+      "id": "BL.SC.U4CSE25042",
+      "image": "teams/photo_Sumit Bhushan Singh.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/sumit-bhushan-singh-5851a7378",
+        "github": "https://github.com/Sumit-998"
+      }
+    },
+    {
+      "name": "M K Purvika Reddy",
+      "role": "Member",
+      "team": "Events",
+      "image": "teams/Purvika_Reddy_v2.jpg",
+      "social": {
+        "linkedin": "https://in.linkedin.com/in/purvika-reddy-mk-2a53b3395"
+      },
+      "id": "BL.AI.U4AID25029"
     },
     {
       "name": "Ganjam Naga Sai Abhiram",
       "role": "Member",
-      "team": "Non-Technical",
+      "team": "Events",
       "id": "BL.SC.U4AIE25018",
-      "image": "images/new_team/BL.SC.U4AIE25018.jpg",
+      "image": "teams/Ganjam_Naga_Sai_Abhiram.jpg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/naga-sai-abhiram-ganjam-882a8a36b"
+        "linkedin": "https://www.linkedin.com/in/naga-sai-abhiram-ganjam-882a8a36b",
+        "github": "https://github.com/abhiramg-1108"
+      }
+    }
+  ],
+  "Outreach": [
+    {
+      "name": "Karunya Pamarthi",
+      "role": "Lead | Outreach",
+      "team": "Outreach",
+      "id": "BL.SC.U4AIE25221",
+      "image": "teams/IMG_20261022_231300_KARUNYA PAMARTHI.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/karunya-pamarthi-aaa970376",
+        "github": "https://github.com/Karunya369"
       }
     },
     {
       "name": "D Jaya Vardhan Reddy",
       "role": "Member",
-      "team": "Non-Technical",
+      "team": "Outreach",
       "id": "BL.AI.U4AID24018",
-      "image": "images/new_team/BL.AI.U4AID24018.png",
+      "image": "teams/WhatsApp Image 2026-10-03 at 12.10.48 PM_DASARI JAYAVARDHAN R.jpeg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/jaya-vardhan-reddy-b00052319"
+        "linkedin": "https://www.linkedin.com/in/jaya-vardhan-reddy-b00052319/",
+        "github": "https://github.com/jayavardhanreddy214"
       }
     },
     {
-      "name": "Prithvi Mahalingam",
+      "name": "Thanisha Sai Ganesh",
       "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.EN.U4EAC25036",
-      "image": "images/new_team/BL.EN.U4EAC25036.jpg",
+      "team": "Outreach",
+      "id": "BL.SC.U4CSE25140",
+      "image": "teams/IMG_20251130_144824_THANISHA SAI G.jpg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/prithvi-mahalingam-1a61633b8/"
+        "linkedin": "https://www.linkedin.com/in/thanisha-sai-ganesh-431962378",
+        "github": "https://github.com/thanishasaig-cmyk"
       }
     },
     {
-      "name": "Vani Krishna Kumar",
+      "name": "C D Fabian Revanth",
       "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.SC.U4AIE25049",
-      "image": "",
+      "team": "Outreach",
+      "id": "BL.EN.U4ECE26013",
+      "image": "teams/IMG_20260912_232831 (1)_C D Fabian Revanth.jpeg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/vani-krishna-kumar-a525b3377"
+        "linkedin": "https://www.linkedin.com/in/fabslegion/",
+        "github": "https://github.com/FabsLegion"
       }
     },
     {
-      "name": "Swasthik Sujan B S",
+      "name": "Pravallika Jonnalagadda",
       "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.SC.U4CSE25241",
-      "image": "images/new_team/BL.SC.U4CSE25241.jpeg",
+      "team": "Outreach",
+      "id": "BL.EN.U4ECE24146",
+      "image": "teams/Professional_Pic_PRAVALLIKA JONNALAGA.jpeg",
       "social": {
-        "github": "https://github.com/swasthiksujan",
-        "linkedin": "https://www.linkedin.com/in/swasthik-sujan-b-s-501883336/"
+        "linkedin": "https://www.linkedin.com/in/pravallika-jonnalagadda-628259312"
       }
     },
     {
-      "name": "Rashmi Bysani",
+      "name": "Suvansh Gakhar",
       "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.EN.U4AIE23124",
-      "image": "images/new_team/BL.EN.U4AIE23124.png",
+      "team": "Outreach",
+      "id": "BL.EN.U4ECE24052",
+      "image": "teams/suvs_Suvansh Gakhar.jpg",
       "social": {
-        "github": "https://www.github.com/12rash",
-        "linkedin": "https://www.linkedin.com/in/rashmi-bysani-161542310/"
+        "linkedin": "https://www.linkedin.com/in/suvansh-gakhar-592453422/",
+        "github": "https://github.com/RandomGuyAB"
       }
-    },
-    {
-      "name": "Karunya Pamarthi",
-      "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.SC.U4AIE25221",
-      "image": "images/new_team/BL.SC.U4AIE25221.jpg",
-      "social": {
-        "github": "https://github.com/Karunya369"
-      }
-    },
-    {
-      "name": "Sreyas Syamkumar",
-      "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.SC.U4CSE25240",
-      "image": "images/new_team/BL.SC.U4CSE25240.png",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/sreyas-s-73195a278/?skipRedirect=true"
-      }
-    },
-    {
-      "name": "Parthasarathi B",
-      "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.EN.U4ELC25020",
-      "image": "images/new_team/BL.EN.U4ELC25020.jpg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/parthasarathi-b-09243630a"
-      }
-    },
+    }
+  ],
+  "Design": [
     {
       "name": "Mehak Gairola",
-      "role": "Member",
-      "team": "Non-Technical",
+      "role": "Lead | Design",
+      "team": "Design",
       "id": "BL.SC.U4AIE25028",
-      "image": "images/new_team/BL.SC.U4AIE25028.jpg"
+      "image": "teams/Mehak_v2.jpg",
+      "social": {}
     },
     {
-      "name": "B.Ganesh Abhinav Reddy",
+      "name": "Dhanujaa T",
       "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.EN.U4ECE25110",
-      "image": "images/new_team/BL.EN.U4ECE25110.png",
+      "team": "Design",
+      "id": "BL.EN.U4ECE24016",
+      "image": "teams/IMG_20261003_231058_DHANUJAA T.jpg",
       "social": {
-        "github": "https://github.com/GaneshAbhi07",
-        "linkedin": "https://in.linkedin.com/in/b-ganesh-abhinav-reddy-7b68173b8"
+        "linkedin": "https://www.linkedin.com/in/dhanujaa-t-7110b4342"
       }
     },
     {
-      "name": "Vulichi Venkata Lakshmi Vignesh",
+      "name": "Shishir Kumar Reddy.M",
       "role": "Member",
-      "team": "Non-Technical",
-      "id": "BL.EN.U4ECE25140",
-      "image": "images/new_team/BL.EN.U4ECE25140.png",
+      "team": "Design",
+      "id": "BL.SC.U4AIE25227",
+      "image": "teams/shishir_kumar reddy_MEDEPATI SHISHIR KUM.jpg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/vignesh-v-7a4a043b8"
+        "linkedin": "https://www.linkedin.com/in/shishir-kumar-reddy-65124a42b",
+        "github": "https://github.com/shishir8930032008-lang/workshop"
+      }
+    },
+    {
+      "name": "Lakshita Girdhar",
+      "role": "Member",
+      "team": "Design",
+      "id": "BL.SC.U4CSE25222",
+      "image": "teams/d1c9f00c-3248-4d06-97a8-5f8ff2d30680_Lakshita Girdhar.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/lakshita-girdhar-9b429526a"
+      }
+    },
+    {
+      "name": "Vishnu Varshan A R",
+      "role": "Member",
+      "team": "Design",
+      "id": "BL.EN.U4ECE26001",
+      "image": "teams/Vishnu_Varshan_AR.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/visshnu-varshan-a-r-b5a6a3424?utm_source=share_via&utm_content=profile&utm_medium=member_android"
       }
     }
   ]

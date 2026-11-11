@@ -3,60 +3,228 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-slate-50 text-slate-900 transition-colors duration-500 ease-in-out;
+  /* Palette as RGB triplets so Tailwind opacity modifiers (bg-misc-night/80) still work.
+     Light mode keeps the navy bands; dark mode switches to charcoal black. */
+  :root {
+    --misc-darker: 2 6 23;
+    --misc-night: 5 11 31;
+  }
+  .dark {
+    --misc-darker: 20 20 20; /* charcoal black page */
+    --misc-night: 11 11 11;  /* the always-dark bands, a touch darker than the page */
   }
 
-  /* Dark mode base styles */
+  html {
+    scroll-behavior: smooth;
+    /* `clip` (unlike `hidden`) does not break position: sticky */
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased transition-colors duration-500 ease-in-out;
+    overflow-x: clip;
+  }
+
   .dark body {
     @apply bg-misc-darker text-slate-100;
+  }
+
+  ::selection {
+    background: rgba(0, 120, 212, 0.35);
+  }
+
+  section[id] {
+    scroll-margin-top: 0;
   }
 }
 
 @layer components {
-  /* Reusable Glassmorphism Classes */
+  /* ---------- Typography ---------- */
+  .display {
+    @apply font-display font-black uppercase tracking-tight;
+    font-stretch: 78%;
+    line-height: 0.9;
+  }
+
+  /*
+   * Hollow text. A slightly thinner stroke, a little extra letter-spacing so
+   * neighbouring outlines never touch, and a fill so the shapes read as solid. By default the fill is
+   * a faint tint; on sections with a decorative backdrop (Team, hero, dark bands) it
+   * is set to the exact page colour, so no circuit line, node or glow shows through
+   * the letters. Set --outline-fill on an element to change it.
+   */
+  .text-outline {
+    /* grows with the font size so huge headings do not look hairline-thin */
+    -webkit-text-stroke: max(1.5px, 0.014em) currentColor;
+    -webkit-text-fill-color: transparent; /* fallback for old browsers */
+    letter-spacing: 0.015em;
+  }
+  @supports (color: color-mix(in srgb, red 50%, blue)) {
+    .text-outline {
+      -webkit-text-fill-color: var(--outline-fill, color-mix(in srgb, currentColor 8%, transparent));
+    }
+  }
+
+  /*
+   * Brand gradient text. The gradient is a seamless loop (blue ... purple ... blue)
+   * that slides right-to-left as the page scrolls: App.jsx writes the scroll
+   * distance into --scroll-y on <html>, and the background shifts with it.
+   */
+  .text-gradient {
+    background-image: linear-gradient(
+      90deg,
+      theme("colors.misc.blue"),
+      theme("colors.misc.lightBlue"),
+      theme("colors.misc.purple"),
+      theme("colors.misc.lightBlue"),
+      theme("colors.misc.blue")
+    );
+    background-size: 200% 100%;
+    background-repeat: repeat-x;
+    background-position-x: calc(var(--scroll-y, 0) * -0.4px);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---------- Surfaces ---------- */
   .glass-card {
     @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg rounded-2xl transition-all duration-300;
   }
 
   .dark .glass-card {
-    @apply bg-slate-900/40 border-slate-700/60 shadow-black/70;
-  }
-
-  .glass-card-hover {
-    @apply hover:-translate-y-1 hover:shadow-xl hover:bg-white/80;
-  }
-
-  .dark .glass-card-hover {
-    @apply hover:bg-slate-800/60 hover:border-misc-blue/60 hover:shadow-misc-blue/30;
+    @apply bg-neutral-900/50 border-neutral-700/60 shadow-black/70;
   }
 
   .glass-nav {
-    @apply bg-white/70 backdrop-blur-md border-b border-white/20 shadow-sm;
+    @apply bg-white/90 backdrop-blur-xl border border-slate-200/70 shadow-lg shadow-slate-900/5;
   }
 
   .dark .glass-nav {
-    @apply bg-misc-darker/70 border-slate-800/80 shadow-black/60;
+    @apply bg-misc-darker/70 border-neutral-700/60 shadow-black/40;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full px-7 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply text-white shadow-xl shadow-misc-blue/30;
+    background-image: linear-gradient(110deg, #0078d4, #5c2d91 55%, #0078d4);
+    background-size: 200% 100%;
+  }
+  .btn-primary:hover {
+    background-position: 100% 0;
+    @apply shadow-2xl shadow-misc-purple/40;
+  }
+
+  .btn-ghost {
+    @apply border border-slate-300 bg-white/50 text-slate-900 backdrop-blur-md hover:border-misc-blue hover:text-misc-blue;
+  }
+  .dark .btn-ghost {
+    @apply border-slate-600 bg-slate-900/40 text-white hover:border-misc-lightBlue hover:text-misc-lightBlue;
+  }
+
+  .btn-light {
+    @apply bg-white text-misc-dark hover:bg-misc-blue hover:text-white;
+  }
+
+  /* arrow nudge inside any .btn */
+  .btn .btn-arrow {
+    @apply transition-transform duration-300;
+  }
+  .btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ---------- Backgrounds ---------- */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(100, 116, 139, 0.14) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(100, 116, 139, 0.14) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  }
+
+  /* Paper-like grain used by SectionBackdrop (static, no animation) */
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.2 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.26;
+    mix-blend-mode: multiply;
+  }
+  .dark .bg-grain {
+    opacity: 0.14;
+    mix-blend-mode: screen;
+  }
+
+  /* Hero strip cards: tilted at rest, straighten + lift on hover */
+  .tilt-card {
+    transform: rotate(var(--r, 0deg)) translateY(var(--y, 0px));
+    transition:
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.6s ease;
+  }
+  .tilt-card:hover {
+    transform: rotate(0deg) translateY(-18px) scale(1.07);
+    z-index: 10;
   }
 }
 
-/* Custom Scrollbar for a premium feel */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   @apply bg-transparent;
 }
-
 ::-webkit-scrollbar-thumb {
   @apply bg-slate-300 rounded-full;
 }
-
 .dark ::-webkit-scrollbar-thumb {
   @apply bg-slate-700;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-misc-blue;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Purple-blue visual identity inspired by the Beyond Brute Force poster */
+@layer base {
+  body {
+    background: #f4efe6; /* warm off-white / beige */
+  }
+  .dark body {
+    background: rgb(var(--misc-darker));
+  }
+}
+
+/* Recolor the existing utility-based surfaces without changing layout. */
+.bg-slate-50 { background-color: #f4efe6 !important; }
+.dark .dark\:bg-misc-darker { background-color: rgb(var(--misc-darker)) !important; }
+.bg-white { background-color: #fffcf6 !important; }
+.dark .dark\:bg-slate-900\/60,
+.dark .dark\:bg-slate-900\/70 { background-color: rgba(32, 32, 32, 0.85) !important; }
+/* Dark mode: swap the remaining blue-grey (slate) surfaces and borders for neutral charcoal greys */
+.dark .dark\:bg-slate-900\/50 { background-color: rgba(32, 32, 32, 0.6) !important; }
+.dark .dark\:bg-slate-800 { background-color: #262626 !important; }
+.dark .dark\:border-slate-800 { border-color: #2a2a2a !important; }
+.dark .dark\:border-slate-700 { border-color: #3a3a3a !important; }
+.dark .dark\:border-slate-600 { border-color: #4a4a4a !important; }
+.bg-grid {
+  background-image: linear-gradient(to right, rgba(120, 98, 64, 0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(120, 98, 64, 0.13) 1px, transparent 1px);
 }

@@ -29,15 +29,33 @@
       "image": "Spootacular_Solutions_Hackathon.jpg",
       "title": "Spootacular Solutions Hackathon",
       "description": "A hackathon filled with creativity and innovative solutions."
-    }
-  ],
-  "upcoming_events": [
+    },
     {
       "image": "MSpectra.jpeg",
       "title": "MSpectra Hackathon 2026",
-      "date": "April 3-4, 2026",
-      "description": "Amrita Bengaluru's premier 48-hour Augmented Engineering hackathon. Compete for a ₹54,000+ prize pool, solve real-world startup challenges, and pitch to industry experts.",
-      "event_url": "https://mspectra.in"
+      "description": "Amrita Bengaluru's 48-hour Augmented Engineering hackathon, held on April 3-4, 2026."
+    },
+    {
+      "image": "beyond-brute-force-1.jpg",
+      "image_position": "64% 50%",
+      "images": [
+        "beyond-brute-force-1.jpg",
+        "beyond-brute-force-2.jpg",
+        "beyond-brute-force-3.jpg",
+        "beyond-brute-force-4.jpg",
+        "beyond-brute-force-5.jpg",
+        "beyond-brute-force-6.jpg"
+      ],
+      "title": "Beyond Brute Force",
+      "subtitle": "Data Structures and Algorithms Workshop",
+      "date": "6 October 2026",
+      "description": "A hands-on workshop to help students move beyond brute-force solutions, with core Data Structures and Algorithms concepts, live coding and a quiz.",
+      "details": [
+        "Beyond Brute Force was a hands-on technical workshop organized by the Microsoft Ignite Students Club to help students strengthen their problem-solving abilities and develop efficient coding practices. The workshop focused on understanding fundamental Data Structures and Algorithms (DSA) concepts and moving beyond brute-force solutions towards optimized approaches.",
+        "The sessions covered essential topics including loops, time complexity, linear data structures, Sliding Window, Prefix Sum, Two Pointers, Kadane’s Algorithm, and Binary Search. Through conceptual explanations, live coding demonstrations, participants learned to identify suitable algorithmic patterns and apply them to solve computational problems efficiently.",
+        "An interactive quiz on DSA concepts and problem-solving patterns further encouraged participation and reinforced the concepts covered during the workshop."
+      ]
     }
-  ]
+  ],
+  "upcoming_events": []
 }
