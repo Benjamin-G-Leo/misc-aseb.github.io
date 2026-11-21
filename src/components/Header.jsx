@@ -7,8 +7,8 @@ const NAV = [
   { label: "Home", id: "top", href: "#" },
   { label: "About", id: "about", href: "#about" },
   { label: "What we do", id: "what-we-do", href: "#what-we-do" },
-  { label: "Events", id: "events", href: "#events" },
   { label: "Team", id: "team", href: "#team" },
+  { label: "Events", id: "events", href: "#events" },
   { label: "Contact", id: "contact", href: "#contact" },
 ];
 

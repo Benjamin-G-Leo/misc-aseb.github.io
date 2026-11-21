@@ -8,7 +8,8 @@
       "image": "teams/K_Hemalatha_Reddy.jpg",
       "social": {
         "linkedin": "https://www.linkedin.com/in/k-hemalatha-reddy-a7a70a322",
-        "github": "https://github.com/hema312006"
+        "github": "https://github.com/hema312006",
+        "whatsapp": "https://wa.me/+919686467139"
       }
     },
     {
@@ -17,7 +18,8 @@
       "team": "Core",
       "image": "teams/Ashtavi_v2.jpg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/ashtavi-a-naik-11296936a"
+        "linkedin": "https://www.linkedin.com/in/ashtavi-a-naik-11296936a",
+        "whatsapp": "https://wa.me/+917676666270"
       },
       "id": "BL.EN.U4ECE24108"
     },
@@ -28,7 +30,8 @@
       "id": "BL.SC.U4CSE25241",
       "image": "teams/Swasthik_v2.jpg",
       "social": {
-        "linkedin": "https://www.linkedin.com/in/swasthik-sujan-b-s-501883336?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        "linkedin": "https://www.linkedin.com/in/swasthik-sujan-b-s-501883336",
+        "whatsapp": "https://wa.me/+918110000506"
       }
     }
   ],
@@ -41,17 +44,6 @@
       "image": "teams/me_Shreyas D.jpg",
       "social": {
         "linkedin": "https://www.linkedin.com/in/shreyas-d-39195a202/"
-      }
-    },
-    {
-      "name": "Aneesh Sagar Reddy",
-      "role": "Member",
-      "team": "Projects",
-      "id": "BL.SC.U4AIE24103",
-      "image": "teams/IMG-20250402-WA0010(1)_Aneesh Sagar Reddy.jpg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/aneesh-sagar-reddy",
-        "github": "https://github.com/Chimera418"
       }
     },
     {
@@ -74,6 +66,17 @@
       "social": {
         "linkedin": "https://www.linkedin.com/in/aditya-raj-6870281bb/",
         "github": "https://github.com/adityaraj-2105"
+      }
+    },
+    {
+      "name": "Aneesh Sagar Reddy",
+      "role": "Member",
+      "team": "Projects",
+      "id": "BL.SC.U4AIE24103",
+      "image": "teams/IMG-20250402-WA0010(1)_Aneesh Sagar Reddy.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/aneesh-sagar-reddy",
+        "github": "https://github.com/Chimera418"
       }
     },
     {
@@ -220,73 +223,6 @@
       }
     }
   ],
-  "Outreach": [
-    {
-      "name": "Karunya Pamarthi",
-      "role": "Lead | Outreach",
-      "team": "Outreach",
-      "id": "BL.SC.U4AIE25221",
-      "image": "teams/IMG_20261022_231300_KARUNYA PAMARTHI.jpg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/karunya-pamarthi-aaa970376",
-        "github": "https://github.com/Karunya369"
-      }
-    },
-    {
-      "name": "D Jaya Vardhan Reddy",
-      "role": "Member",
-      "team": "Outreach",
-      "id": "BL.AI.U4AID24018",
-      "image": "teams/WhatsApp Image 2026-10-03 at 12.10.48 PM_DASARI JAYAVARDHAN R.jpeg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/jaya-vardhan-reddy-b00052319/",
-        "github": "https://github.com/jayavardhanreddy214"
-      }
-    },
-    {
-      "name": "Thanisha Sai Ganesh",
-      "role": "Member",
-      "team": "Outreach",
-      "id": "BL.SC.U4CSE25140",
-      "image": "teams/IMG_20251130_144824_THANISHA SAI G.jpg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/thanisha-sai-ganesh-431962378",
-        "github": "https://github.com/thanishasaig-cmyk"
-      }
-    },
-    {
-      "name": "C D Fabian Revanth",
-      "role": "Member",
-      "team": "Outreach",
-      "id": "BL.EN.U4ECE26013",
-      "image": "teams/IMG_20260912_232831 (1)_C D Fabian Revanth.jpeg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/fabslegion/",
-        "github": "https://github.com/FabsLegion"
-      }
-    },
-    {
-      "name": "Pravallika Jonnalagadda",
-      "role": "Member",
-      "team": "Outreach",
-      "id": "BL.EN.U4ECE24146",
-      "image": "teams/Professional_Pic_PRAVALLIKA JONNALAGA.jpeg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/pravallika-jonnalagadda-628259312"
-      }
-    },
-    {
-      "name": "Suvansh Gakhar",
-      "role": "Member",
-      "team": "Outreach",
-      "id": "BL.EN.U4ECE24052",
-      "image": "teams/suvs_Suvansh Gakhar.jpg",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/suvansh-gakhar-592453422/",
-        "github": "https://github.com/RandomGuyAB"
-      }
-    }
-  ],
   "Design": [
     {
       "name": "Mehak Gairola",
@@ -335,6 +271,73 @@
       "image": "teams/Vishnu_Varshan_AR.jpg",
       "social": {
         "linkedin": "https://www.linkedin.com/in/visshnu-varshan-a-r-b5a6a3424?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+      }
+    }
+  ],
+  "Outreach": [
+    {
+      "name": "D Jaya Vardhan Reddy",
+      "role": "Lead | Outreach",
+      "team": "Outreach",
+      "id": "BL.AI.U4AID24018",
+      "image": "teams/WhatsApp Image 2026-10-03 at 12.10.48 PM_DASARI JAYAVARDHAN R.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/jaya-vardhan-reddy-b00052319/",
+        "github": "https://github.com/jayavardhanreddy214"
+      }
+    },
+    {
+      "name": "Karunya Pamarthi",
+      "role": "Lead | Outreach",
+      "team": "Outreach",
+      "id": "BL.SC.U4AIE25221",
+      "image": "teams/IMG_20261022_231300_KARUNYA PAMARTHI.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/karunya-pamarthi-aaa970376",
+        "github": "https://github.com/Karunya369"
+      }
+    },
+    {
+      "name": "Thanisha Sai Ganesh",
+      "role": "Member",
+      "team": "Outreach",
+      "id": "BL.SC.U4CSE25140",
+      "image": "teams/IMG_20251130_144824_THANISHA SAI G.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/thanisha-sai-ganesh-431962378",
+        "github": "https://github.com/thanishasaig-cmyk"
+      }
+    },
+    {
+      "name": "C D Fabian Revanth",
+      "role": "Member",
+      "team": "Outreach",
+      "id": "BL.EN.U4ECE26013",
+      "image": "teams/IMG_20260912_232831 (1)_C D Fabian Revanth.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/fabslegion/",
+        "github": "https://github.com/FabsLegion"
+      }
+    },
+    {
+      "name": "Pravallika Jonnalagadda",
+      "role": "Member",
+      "team": "Outreach",
+      "id": "BL.EN.U4ECE24146",
+      "image": "teams/Professional_Pic_PRAVALLIKA JONNALAGA.jpeg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/pravallika-jonnalagadda-628259312"
+      }
+    },
+    {
+      "name": "Suvansh Gakhar",
+      "role": "Member",
+      "team": "Outreach",
+      "id": "BL.EN.U4ECE24052",
+      "image": "teams/suvs_Suvansh Gakhar.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/suvansh-gakhar-592453422/",
+        "github": "https://github.com/RandomGuyAB"
       }
     }
   ]
