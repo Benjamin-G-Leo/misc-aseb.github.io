@@ -189,6 +189,18 @@
   @apply bg-misc-blue;
 }
 
+/*
+ * Phones: frosted-glass blur is expensive (every blurred element re-draws what is behind
+ * it on each scroll frame, and the Team page has dozens). Drop it except on the top menu;
+ * the elements keep their semi-transparent fill, so they still read fine.
+ */
+@media (max-width: 639px) {
+  [class*="backdrop-blur"]:not(.glass-nav) {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

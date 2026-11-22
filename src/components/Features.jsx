@@ -177,6 +177,8 @@ function Features() {
                         <img
                           src={img(ft.image)}
                           alt={ft.caption}
+                          loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-misc-night/90 via-transparent to-transparent" />
