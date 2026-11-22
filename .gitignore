@@ -28,3 +28,5 @@ unused-photos/
 MISC Executives Form*.xlsx
 MISC Members Roster*.xlsx
 graphify-out/
+.vercel
+.env*
