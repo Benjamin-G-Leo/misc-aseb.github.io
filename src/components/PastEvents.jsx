@@ -40,6 +40,7 @@ function EventCard({ event, index, onOpen }) {
         src={event.image}
         alt={event.title}
         loading="lazy"
+        decoding="async"
         style={event.image_position ? { objectPosition: event.image_position } : undefined}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
       />

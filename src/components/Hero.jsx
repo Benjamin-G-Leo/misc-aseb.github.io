@@ -152,6 +152,7 @@ function Hero() {
                 src={encodeURI(`${import.meta.env.BASE_URL}events/${ev.image}`)}
                 alt={ev.title}
                 loading="lazy"
+                decoding="async"
                 style={ev.image_position ? { objectPosition: ev.image_position } : undefined}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />

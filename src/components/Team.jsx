@@ -64,6 +64,9 @@ function MemberCard({ member, index }) {
                 src={imageSrc(member.image)}
                 alt={member.name}
                 loading="lazy"
+                decoding="async"
+                width="800"
+                height="1000"
                 onError={(e) => {
                   e.currentTarget.onerror = null;
                   e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=0078D4&color=fff&size=400`;
