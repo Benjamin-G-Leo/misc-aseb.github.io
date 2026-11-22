@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Private files that must never go into this public repository
+unused-photos/
+MISC Executives Form*.xlsx
+MISC Members Roster*.xlsx
+graphify-out/

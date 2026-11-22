@@ -1,85 +1,38 @@
-import { Body1 } from "@fluentui/react-components";
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaYoutube,
-  FaEnvelope,
-} from "react-icons/fa";
 import Logo from "/logo.png";
+import { SOCIAL_LINKS } from "../assets/socials";
+
+const quickLinks = [
+  ["Home", "#"],
+  ["About", "#about"],
+  ["What we do", "#what-we-do"],
+  ["Events", "#events"],
+  ["Team", "#team"],
+];
 
 /**
- * Footer Component
+ * Footer
  *
- * Renders the bottom section of the website containing branding,
- * quick navigation links, social media connections, and a location map.
- * Uses a glassmorphic design to blend with the dynamic background.
+ * Brand, map, links, socials, plus an oversized gradient wordmark that
+ * fades into the bottom edge.
  */
 function Footer() {
-  const quickLinks = ["Home", "About", "Events", "Team"];
-
-  const socialLinks = [
-    {
-      icon: <FaInstagram />,
-      url: "https://www.instagram.com/ignitestudentsclub/",
-      label: "Instagram",
-    },
-    {
-      icon: <FaFacebookF />,
-      url: "https://www.facebook.com/profile.php?id=61556389845852",
-      label: "Facebook",
-    },
-    {
-      icon: <FaYoutube />,
-      url: "https://www.youtube.com/@IgniteStudentsClub",
-      label: "YouTube",
-    },
-    {
-      icon: <FaLinkedinIn />,
-      url: "https://www.linkedin.com/company/microsoft-ignite-students-club-aseb",
-      label: "LinkedIn",
-    },
-    {
-      icon: <FaEnvelope />,
-      url: "mailto:ignitesclub@blr.amrita.edu",
-      label: "Email",
-    },
-  ];
-
   return (
-    <footer
-      id="contact"
-      className="relative mt-20 border-t border-white/20 dark:border-slate-800 bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          {/* Brand & Location Section */}
-          <div className="flex flex-col space-y-4">
+    <footer id="contact" className="relative overflow-hidden bg-misc-night text-white">
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 border-t border-white/10 pt-16 md:grid-cols-12">
+          {/* Brand + map */}
+          <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <img
-                src={Logo}
-                alt="MISC Logo"
-                className="h-12 w-auto drop-shadow-md"
-              />
+              <img src={Logo} alt="MISC Logo" className="h-12 w-auto" />
               <div>
-                <Body1
-                  block
-                  as="h3"
-                  className="font-bold text-lg text-slate-900 dark:text-white"
-                >
-                  Microsoft Ignite Students Club
-                </Body1>
-                <Body1
-                  block
-                  as="p"
-                  className="text-sm text-misc-blue dark:text-misc-lightBlue font-medium"
-                >
+                <h3 className="display text-2xl">Microsoft Ignite Students Club</h3>
+                <p className="text-sm font-medium text-misc-lightBlue">
                   Ignite • Innovate • Elevate
-                </Body1>
+                </p>
               </div>
             </div>
 
-            <div className="mt-4 rounded-xl overflow-hidden border border-white/20 dark:border-slate-700 shadow-lg">
+            <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 shadow-2xl transition-all duration-500 hover:border-misc-lightBlue/50 hover:shadow-misc-blue/20">
               <iframe
                 title="MISC Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.1981901521413!2d77.67316457518486!3d12.894974016553412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1339d7500cd3%3A0x4b4fbdff03bfee09!2sAmrita%20Vishwa%20Vidyapeetam%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1735771492597!5m2!1sen!2sin"
@@ -88,57 +41,49 @@ function Footer() {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-48 object-cover"
-              ></iframe>
+                className="h-48 w-full opacity-90 transition-opacity duration-500 hover:opacity-100"
+              />
             </div>
           </div>
 
-          {/* Quick Links Section */}
-          <div className="md:pl-12">
-            <Body1
-              block
-              as="h3"
-              className="font-bold mb-6 text-lg text-slate-900 dark:text-white border-b border-misc-blue/20 pb-2 inline-block"
-            >
-              Quick Links
-            </Body1>
+          {/* Quick links */}
+          <div className="md:col-span-3 md:pl-8">
+            <h4 className="mb-6 text-xs font-bold uppercase tracking-[0.3em] text-misc-lightBlue">
+              Quick links
+            </h4>
+            <ul className="space-y-2">
+              {quickLinks.map(([label, href]) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="group/l display inline-flex items-center gap-3 text-3xl text-slate-300 transition-all duration-300 hover:translate-x-2 hover:text-white"
+                  >
+                    <span className="h-0.5 w-0 bg-misc-lightBlue transition-all duration-300 group-hover/l:w-6" />
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Socials */}
+          <div className="md:col-span-4">
+            <h4 className="mb-6 text-xs font-bold uppercase tracking-[0.3em] text-misc-lightBlue">
+              Connect with us
+            </h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link}>
+              {SOCIAL_LINKS.map(({ icon: Icon, url, label }) => (
+                <li key={label}>
                   <a
-                    href={link === "Home" ? "#" : `#${link.toLowerCase()}`}
-                    className="text-sm text-slate-600 dark:text-slate-300 hover:text-misc-blue dark:hover:text-misc-lightBlue transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-misc-blue/50 group-hover:bg-misc-blue transition-colors"></span>
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social Connections Section */}
-          <div>
-            <Body1
-              block
-              as="h3"
-              className="font-bold mb-6 text-lg text-slate-900 dark:text-white border-b border-misc-purple/20 pb-2 inline-block"
-            >
-              Connect With Us
-            </Body1>
-            <ul className="space-y-4">
-              {socialLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.url}
-                    target="_blank"
+                    href={url}
+                    target={url.startsWith("mailto") ? undefined : "_blank"}
                     rel="noopener noreferrer"
-                    className="text-sm text-slate-600 dark:text-slate-300 hover:text-misc-purple dark:hover:text-misc-lightBlue transition-all duration-300 flex items-center gap-3 group"
+                    className="group/s flex items-center gap-4 text-slate-300 transition-colors duration-300 hover:text-white"
                   >
-                    <span className="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 group-hover:bg-misc-purple/10 dark:group-hover:bg-misc-purple/20 group-hover:scale-110 transition-all shadow-sm">
-                      {link.icon}
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg transition-all duration-300 group-hover/s:-rotate-6 group-hover/s:scale-110 group-hover/s:border-transparent group-hover/s:bg-gradient-to-br group-hover/s:from-misc-blue group-hover/s:to-misc-purple">
+                      <Icon />
                     </span>
-                    <span className="font-medium">{link.label}</span>
+                    <span className="font-semibold">{label}</span>
                   </a>
                 </li>
               ))}
@@ -146,17 +91,23 @@ function Footer() {
           </div>
         </div>
 
-        {/* Copyright Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-200/50 dark:border-slate-800/50 text-center">
-          <Body1
-            block
-            as="p"
-            className="text-xs text-slate-500 dark:text-slate-400"
-          >
-            &copy; {new Date().getFullYear()} Microsoft Ignite Students Club.
-            All rights reserved.
-          </Body1>
-        </div>
+        <p className="mt-16 text-center text-xs text-slate-500">
+          &copy; {new Date().getFullYear()} Microsoft Ignite Students Club. All rights reserved.
+        </p>
+      </div>
+
+      {/* Giant wordmark */}
+      <div
+        aria-hidden="true"
+        className="display pointer-events-none mt-4 select-none text-center text-[clamp(8rem,36vw,34rem)] leading-[0.75] text-transparent [-webkit-mask-image:linear-gradient(to_bottom,#000_20%,transparent_95%)] [mask-image:linear-gradient(to_bottom,#000_20%,transparent_95%)]"
+        style={{
+          backgroundImage: "linear-gradient(90deg,#0078D4,#2B88D8,#5C2D91)",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          opacity: 0.55,
+        }}
+      >
+        MISC
       </div>
     </footer>
   );

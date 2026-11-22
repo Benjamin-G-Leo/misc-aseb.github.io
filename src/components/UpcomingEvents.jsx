@@ -1,145 +1,148 @@
-import { Title2, Body1, Badge } from "@fluentui/react-components";
-import { CalendarLtrRegular, LocationRegular } from "@fluentui/react-icons";
+import { FiArrowUpRight, FiCalendar, FiMapPin } from "react-icons/fi";
 import data from "../assets/events.json";
+import SectionHeading from "./ui/SectionHeading";
+import SectionBackdrop from "./ui/SectionBackdrop";
+import TiltCard from "./ui/TiltCard";
+import FadeUp from "./ui/FadeUp";
+import Magnetic from "./ui/Magnetic";
 
 /**
- * UpcomingEvents Component
+ * UpcomingEvents
  *
- * Displays a grid of upcoming events using premium glassmorphic cards.
- * Designed to highlight important dates and encourage RSVPs.
+ * Posters get a blurred copy of themselves as backdrop so any aspect ratio
+ * fills the card nicely. Cards tilt in 3D under the cursor.
  */
 function UpcomingEvents() {
-  // Use dynamically loaded events from the JSON file and map the relative image and default fields
-  const events = data.upcoming_events
-    ? data.upcoming_events.map((event) => ({
-        ...event,
-        image: event.image.startsWith("http")
-          ? event.image
-          : `/images/events/${event.image}`,
-        type: event.type || "Event",
-        location: event.location || "Amrita Bengaluru",
-      }))
-    : [];
+  const events = (data.upcoming_events || []).map((event) => ({
+    ...event,
+    image: event.image.startsWith("http")
+      ? event.image
+      : encodeURI(`${import.meta.env.BASE_URL}events/${event.image}`),
+    type: event.type || "Event",
+    location: event.location || "Amrita Bengaluru",
+  }));
+
+  const single = events.length === 1;
 
   return (
-    <section id="upcoming-events" className="py-16 md:py-24 px-4 relative z-10">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-misc-blue/10 border border-misc-blue/20 text-misc-blue dark:text-misc-lightBlue text-sm font-bold tracking-widest uppercase shadow-sm">
-            Join Us
-          </div>
-          <Title2
-            block
-            as="h2"
-            className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white"
-          >
-            Upcoming Events
-          </Title2>
-          <Body1 className="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto block">
-            Don't miss out on our latest workshops, hackathons, and tech talks.
-          </Body1>
-        </div>
+    <section
+      id="upcoming-events"
+      className="relative z-20 -mt-12 rounded-t-[2.5rem] bg-slate-50 px-4 pb-24 pt-24 dark:bg-misc-darker md:-mt-16 md:rounded-t-[4rem] md:pb-32 md:pt-32"
+    >
+      <SectionBackdrop flip />
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading
+          eyebrow="Join us"
+          title="Upcoming events"
+          accent={["events"]}
+          subtitle="Don't miss out on our latest workshops, hackathons, and tech talks."
+          className="mb-16 md:mb-24"
+        />
 
-        {/* Events Grid - Dynamically adapt layout based on event count */}
+        {events.length === 0 && (
+          <FadeUp className="mx-auto max-w-2xl rounded-3xl border border-dashed border-slate-300 p-12 text-center dark:border-slate-700">
+            <p className="display text-4xl text-slate-900 dark:text-white">
+              Something&rsquo;s <span className="text-gradient">brewing</span>
+            </p>
+            <p className="mt-3 text-slate-600 dark:text-slate-400">
+              New events are on the way. Follow us on social media to be the
+              first to know.
+            </p>
+          </FadeUp>
+        )}
+
         <div
-          className={`mx-auto ${
-            events.length === 1
-              ? "max-w-5xl"
-              : events.length === 2
-                ? "grid gap-8 grid-cols-1 md:grid-cols-2 max-w-4xl"
-                : "grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          }`}
+          className={
+            single
+              ? "mx-auto max-w-6xl"
+              : "grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          }
         >
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className={`glass-card glass-card-hover group overflow-hidden ${
-                events.length === 1
-                  ? "flex flex-col md:flex-row" // Horizontal layout if only 1 event
-                  : "flex flex-col h-full"
-              }`}
-            >
-              {/* Image Container */}
-              <div
-                className={`relative overflow-hidden ${
-                  events.length === 1
-                    ? "md:w-1/2 min-h-[250px] md:min-h-[300px]"
-                    : "h-48"
-                }`}
-              >
-                <div className="absolute inset-0 bg-misc-darker/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-full object-contain absolute inset-0 transform group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute top-4 right-4 z-20">
-                  <Badge
-                    appearance="filled"
-                    className="bg-misc-blue/90 backdrop-blur-sm text-white border-none shadow-md"
-                  >
-                    {event.type}
-                  </Badge>
-                </div>
-              </div>
-
-              {/* Content Container */}
-              <div
-                className={`p-6 md:p-8 flex flex-col flex-grow ${
-                  events.length === 1 ? "md:w-1/2 justify-center" : ""
-                }`}
-              >
-                <h3
-                  className={`font-bold text-slate-900 dark:text-white mb-3 group-hover:text-misc-blue dark:group-hover:text-misc-lightBlue transition-colors ${
-                    events.length === 1
-                      ? "text-2xl md:text-3xl"
-                      : "text-xl mb-2"
+          {events.map((event) => (
+            <FadeUp key={event.title}>
+              <TiltCard max={single ? 3 : 6} className="rounded-[2rem]">
+                <article
+                  className={`overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-900/5 transition-shadow duration-500 hover:shadow-2xl hover:shadow-misc-blue/20 dark:border-slate-800 dark:bg-slate-900/70 ${
+                    single ? "flex flex-col md:flex-row" : "flex h-full flex-col"
                   }`}
                 >
-                  {event.title}
-                </h3>
-
-                {event.description && (
-                  <p
-                    className={`text-slate-600 dark:text-slate-400 mb-6 ${
-                      events.length === 1
-                        ? "text-base"
-                        : "text-sm line-clamp-2 mb-4"
+                  {/* Poster */}
+                  <div
+                    className={`relative shrink-0 overflow-hidden bg-slate-900 ${
+                      single ? "min-h-[300px] md:w-1/2" : "h-60"
                     }`}
                   >
-                    {event.description}
-                  </p>
-                )}
-
-                <div className="space-y-3 mt-auto">
-                  <div className="flex items-center text-slate-700 dark:text-slate-300 text-sm font-medium">
-                    <CalendarLtrRegular className="mr-3 text-lg text-misc-blue dark:text-misc-lightBlue" />
-                    {event.date}
+                    <img
+                      src={event.image}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 h-full w-full scale-125 object-cover opacity-60 blur-2xl"
+                    />
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <span className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-misc-blue to-misc-purple px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white shadow-lg">
+                      {event.type}
+                    </span>
                   </div>
-                  <div className="flex items-center text-slate-700 dark:text-slate-300 text-sm font-medium">
-                    <LocationRegular className="mr-3 text-lg text-misc-purple dark:text-misc-lightBlue" />
-                    {event.location}
-                  </div>
-                </div>
 
-                {event.event_url && (
-                  <div className="mt-6">
-                    <a
-                      href={event.event_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block w-full"
+                  {/* Details */}
+                  <div className={`flex flex-1 flex-col p-7 md:p-10 ${single ? "justify-center" : ""}`}>
+                    <h3
+                      className={`display text-slate-900 transition-colors duration-300 group-hover:text-misc-blue dark:text-white dark:group-hover:text-misc-lightBlue ${
+                        single ? "text-5xl md:text-6xl" : "text-3xl"
+                      }`}
                     >
-                      <button className="w-full py-3 px-6 bg-misc-blue/10 hover:bg-misc-blue/20 text-misc-blue dark:text-misc-lightBlue rounded-xl transition-all shadow-sm hover:shadow-md text-sm font-bold uppercase tracking-wider">
-                        Learn More
-                      </button>
-                    </a>
+                      {event.title}
+                    </h3>
+
+                    {event.description && (
+                      <p
+                        className={`mt-4 text-slate-600 dark:text-slate-400 ${
+                          single ? "text-base leading-relaxed md:text-lg" : "line-clamp-3 text-sm"
+                        }`}
+                      >
+                        {event.description}
+                      </p>
+                    )}
+
+                    <div className="mt-6 space-y-3 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-misc-blue/10 text-misc-blue dark:text-misc-lightBlue">
+                          <FiCalendar />
+                        </span>
+                        {event.date}
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-misc-purple/10 text-misc-purple dark:text-purple-300">
+                          <FiMapPin />
+                        </span>
+                        {event.location}
+                      </div>
+                    </div>
+
+                    {event.event_url && (
+                      <div className="mt-8">
+                        <Magnetic strength={0.2}>
+                          <a
+                            href={event.event_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-primary"
+                          >
+                            Learn more
+                            <FiArrowUpRight className="btn-arrow text-lg" />
+                          </a>
+                        </Magnetic>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            </div>
+                </article>
+              </TiltCard>
+            </FadeUp>
           ))}
         </div>
       </div>

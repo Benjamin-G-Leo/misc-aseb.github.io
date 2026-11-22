@@ -1,59 +1,77 @@
 import { useState, useEffect } from "react";
-import "./App.css";
-import {
-  FluentProvider,
-  webDarkTheme,
-  webLightTheme,
-} from "@fluentui/react-components";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Statement from "./components/Statement";
 import About from "./components/About";
+import Features from "./components/Features";
 import PastEvents from "./components/PastEvents";
-import Team from "./components/Team";
 import UpcomingEvents from "./components/UpcomingEvents";
+import Team from "./components/Team";
+import JoinCta from "./components/JoinCta";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
-function App() {
-  const userTheme = localStorage.getItem("theme");
-  const [theme, setTheme] = useState(userTheme || "light");
+// Browsers can block localStorage (private windows, strict privacy settings) and then
+// even reading it throws. Wrap both calls so the page still loads, just without remembering the theme.
+const readTheme = () => {
+  try {
+    return localStorage.getItem("theme") === "dark" ? "dark" : "light";
+  } catch {
+    return "light";
+  }
+};
+const saveTheme = (value) => {
+  try {
+    localStorage.setItem("theme", value);
+  } catch {
+    /* storage unavailable: the choice is simply not remembered */
+  }
+};
 
-  // Sync Tailwind dark mode class with Fluent UI theme
+function App() {
+  const [theme, setTheme] = useState(readTheme);
+
+  // Sync Tailwind dark mode class + persist the choice
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    saveTheme(theme);
   }, [theme]);
 
+  // Feed the scroll distance to CSS so the gradient text colours slide as you scroll
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      document.documentElement.style.setProperty("--scroll-y", String(window.scrollY));
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
-    <FluentProvider theme={theme === "light" ? webLightTheme : webDarkTheme}>
-      {/* Dynamic Animated Background */}
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none transition-colors duration-700">
-        <div
-          className={`absolute inset-0 ${theme === "dark" ? "bg-misc-darker" : "bg-slate-50"}`}
-        ></div>
-
-        {/* Animated Blobs */}
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-misc-blue rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob dark:opacity-30 dark:mix-blend-screen"></div>
-        <div className="absolute top-0 -right-4 w-72 h-72 bg-misc-purple rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 dark:opacity-30 dark:mix-blend-screen"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-misc-lightBlue rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000 dark:opacity-30 dark:mix-blend-screen"></div>
-      </div>
-
-      <div className="relative z-0 min-h-screen flex flex-col">
-        <Header theme={theme} setTheme={setTheme} />
-        <main className="flex-grow">
-          <Hero />
-          <About />
-          <PastEvents />
-          <UpcomingEvents />
-          <Team />
-        </main>
-        <ScrollToTop />
-        <Footer />
-      </div>
-    </FluentProvider>
+    <div className="relative min-h-screen">
+      <Header theme={theme} setTheme={setTheme} />
+      <main>
+        <Hero />
+        <Statement />
+        <About />
+        <Features />
+        <Team />
+        <PastEvents />
+        <UpcomingEvents />
+        <JoinCta />
+      </main>
+      <Footer />
+      <ScrollToTop />
+    </div>
   );
 }
 

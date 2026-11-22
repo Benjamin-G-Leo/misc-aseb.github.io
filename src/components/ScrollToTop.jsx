@@ -1,48 +1,41 @@
-import { useState, useEffect } from "react";
-import { ArrowUpFilled } from "@fluentui/react-icons";
+import { useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { FiArrowUp } from "react-icons/fi";
 
 /**
- * ScrollToTop Component
+ * ScrollToTop
  *
- * A floating action button that appears when the user scrolls down.
- * Clicking it smoothly scrolls the page back to the top.
- * Styled as a premium glassmorphic circle to match the MISC 2.0 theme.
+ * Floating button wrapped in a ring that fills as you scroll the page.
  */
 const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const { scrollY, scrollYProgress } = useScroll();
 
-  const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (y) => setVisible(y > 600));
 
   return (
     <button
-      onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 p-4 rounded-full z-50 transition-all duration-500 transform ${
-        isVisible
-          ? "opacity-100 translate-y-0 scale-100"
-          : "opacity-0 translate-y-10 scale-90 pointer-events-none"
-      } glass-card hover:bg-misc-blue hover:border-misc-blue group shadow-xl shadow-misc-blue/20`}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Scroll to top"
       title="Scroll to top"
+      className={`group fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-white/95 shadow-xl shadow-misc-blue/20 backdrop-blur-md transition-all duration-500 hover:scale-110 dark:bg-misc-darker/80 ${
+        visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-10 opacity-0"
+      }`}
     >
-      <ArrowUpFilled className="text-2xl text-misc-blue dark:text-misc-lightBlue group-hover:text-white transition-colors duration-300" />
+      <svg className="absolute inset-0 -rotate-90" viewBox="0 0 56 56">
+        <circle cx="28" cy="28" r="26" fill="none" strokeWidth="2.5" className="stroke-slate-300/60 dark:stroke-slate-700" />
+        <motion.circle
+          cx="28"
+          cy="28"
+          r="26"
+          fill="none"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          className="stroke-misc-blue"
+          style={{ pathLength: scrollYProgress }}
+        />
+      </svg>
+      <FiArrowUp className="text-xl text-misc-blue transition-transform duration-300 group-hover:-translate-y-1 dark:text-misc-lightBlue" />
     </button>
   );
 };
