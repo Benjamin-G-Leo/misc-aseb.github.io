@@ -4,6 +4,7 @@ Website of the **Microsoft Ignite Students Club**, Amrita Vishwa Vidyapeetham, B
 
 **Live site:** https://ignitestudents.club/ (also reachable at https://misc-aseb.github.io/)
 **Repository:** https://github.com/MISC-ASEB/misc-aseb.github.io
+**Also on Vercel:** https://ignite-students-club.vercel.app/ (a second copy, see "Vercel copy" in section 4)
 
 ---
 
@@ -197,6 +198,20 @@ Give the section `relative isolate`, import `SectionBackdrop` from `./ui/Section
 - Every push to `main` runs `.github/workflows/deploy.yml`, which does `npm ci`, `npm run build`, then publishes `dist/`. It normally takes about a minute.
 - Progress and errors are on the repo's **Actions** tab.
 - The site address is `https://ignitestudents.club/` (the same site is also at `https://misc-aseb.github.io/`, which redirects to it).
+
+### Vercel copy
+
+The same site is also hosted on Vercel at **https://ignite-students-club.vercel.app/** (team `misc16`, project `misc-website`, owned by the club's Vercel account). It works as a spare copy and a quick way to preview the site.
+
+- It is **not** connected to GitHub, so it does not update by itself. After a change is merged, update it by hand from the repository root, logged in to the club's Vercel account (`npx vercel@latest login`):
+
+  ```bash
+  npx vercel@latest deploy --prod --scope misc16
+  ```
+
+- To make it update on every push, an admin of the GitHub organisation approves the Vercel app for this repository, then runs `npx vercel@latest git connect --scope misc16`.
+- `base` stays `"/"`, so the same build works on both hosts. `ignitestudents.club` still points at GitHub Pages, not Vercel.
+- Never commit `.env.local` or the `.vercel/` folder; both are already in `.gitignore`.
 
 ### Custom domain
 
