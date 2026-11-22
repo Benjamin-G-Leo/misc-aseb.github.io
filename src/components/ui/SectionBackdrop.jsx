@@ -168,7 +168,20 @@ function Node({ n, progress, reduce }) {
   );
 }
 
-function Flow({ flow, tiles, progress, reduce }) {
+/** True on phone-width screens. The backdrop does far less work there (see below). */
+const PHONE = "(max-width: 639px)";
+function usePhone() {
+  const [phone, setPhone] = useState(() => typeof matchMedia !== "undefined" && matchMedia(PHONE).matches);
+  useEffect(() => {
+    const m = matchMedia(PHONE);
+    const on = () => setPhone(m.matches);
+    m.addEventListener("change", on);
+    return () => m.removeEventListener("change", on);
+  }, []);
+  return phone;
+}
+
+function Flow({ flow, tiles, progress, reduce, phone }) {
   const built = useRef(null);
   const headRef = useRef(null);
   const haloRef = useRef(null);
@@ -205,15 +218,14 @@ function Flow({ flow, tiles, progress, reduce }) {
         vectorEffect="non-scaling-stroke"
         style={{ pathLength: reduce ? 1 : progress }}
       />
-      {f.branches.map((b, i) => (
-        <Branch key={i} b={b} progress={progress} reduce={reduce} />
-      ))}
-      {f.nodes.map((n, i) => (
-        <Node key={i} n={n} progress={progress} reduce={reduce} />
-      ))}
+      {/* Phones skip the side branches and nodes: on the tall Team section they are
+          hundreds of separately animated shapes, which is what made scrolling lag. */}
+      {!phone &&
+        f.branches.map((b, i) => <Branch key={i} b={b} progress={progress} reduce={reduce} />)}
+      {!phone && f.nodes.map((n, i) => <Node key={i} n={n} progress={progress} reduce={reduce} />)}
       {!reduce && (
         <>
-          <circle ref={haloRef} r="16" fill="currentColor" opacity="0" style={{ filter: "blur(5px)", transition: "opacity .3s" }} />
+          <circle ref={haloRef} r="16" fill="currentColor" opacity="0" style={{ filter: phone ? undefined : "blur(5px)", transition: "opacity .3s" }} />
           <circle ref={headRef} r="6" fill="#fff" opacity="0" style={{ filter: "drop-shadow(0 0 8px currentColor)", transition: "opacity .3s" }} />
         </>
       )}
@@ -231,7 +243,29 @@ function buildFlowCached(flow, tiles) {
   return value;
 }
 
-function Blobs({ tiles, flip }) {
+function Blobs({ tiles, flip, phone }) {
+  // Phones: a soft radial gradient on every other tile. No blur filter, no animation and
+  // no will-change layer, because blurred, animated glows are very costly on a phone GPU.
+  if (phone) {
+    return (
+      <div className="flex flex-col">
+        {Array.from({ length: tiles }, (_, index) => {
+          const mirrored = flip ? index % 2 === 0 : index % 2 === 1;
+          return (
+            <div key={index} className="relative aspect-[5/4] w-full shrink-0">
+              {index % 2 === 0 && (
+                <div
+                  className={`absolute top-[8%] h-72 w-72 rounded-full bg-[radial-gradient(closest-side,theme(colors.misc.blue/0.42),transparent)] dark:bg-[radial-gradient(closest-side,theme(colors.misc.blue/0.34),transparent)] ${
+                    mirrored ? "right-[-6rem]" : "left-[-6rem]"
+                  }`}
+                />
+              )}
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col">
       {Array.from({ length: tiles }, (_, index) => {
@@ -267,6 +301,7 @@ function Blobs({ tiles, flip }) {
 export default function SectionBackdrop({ flip = false }) {
   const ref = useRef(null);
   const reduce = useReducedMotion();
+  const phone = usePhone();
   const [tiles, setTiles] = useState(3);
 
   // Measure the section so we render just enough tiles to cover it
@@ -340,7 +375,7 @@ export default function SectionBackdrop({ flip = false }) {
             : undefined
         }
       >
-      <Blobs tiles={tiles} flip={flip} />
+      <Blobs tiles={tiles} flip={flip} phone={phone} />
 
       <svg
         viewBox={`0 0 ${TILE_W} ${TILE_H * tiles}`}
@@ -348,7 +383,7 @@ export default function SectionBackdrop({ flip = false }) {
         style={{ aspectRatio: `${TILE_W} / ${TILE_H * tiles}` }}
       >
         {FLOWS.map((flow, i) => (
-          <Flow key={i} flow={flow} tiles={tiles} progress={progress} reduce={reduce} />
+          <Flow key={i} flow={flow} tiles={tiles} progress={progress} reduce={reduce} phone={phone} />
         ))}
       </svg>
       </div>
